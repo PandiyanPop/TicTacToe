@@ -24,12 +24,11 @@ class Cell(var player: Player?){
     }
 
     fun isFull(cells: Array<Array<Cell>>): Boolean {
-        for (row in cells)
-            for (cell in row)
-                if (cell.isEmptyCell) return false
+        cells.forEach { row -> row.forEach { cell -> when { isPlayerValueEmpty(cell) -> return false } } }
         return true
     }
 
+    private fun isPlayerValueEmpty(cell: Cell) = cell.isEmptyCell
     private fun isPlayerValuesAreSame(comparisonBase: Cell, cells: Array<out Cell>, index: Int) = getPlayerValue(comparisonBase).equals(getPlayerValue(cells[index]))
     private fun isPlayerValueIsEmpty(cell: Cell) = getPlayerValue(cell).isNullOrEmpty()
     private fun isEmptyCell(cells: Array<out Cell>) = cells.isEmpty()
