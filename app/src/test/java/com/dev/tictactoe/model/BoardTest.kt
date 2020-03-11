@@ -45,7 +45,7 @@ class BoardTest {
     }
 
     @Test
-    fun `Given function should return current player name as player one name, when game starts on first time`(){
+    fun `Given function should return current player name as player one name, when board starts on first time`(){
         val expectedResult = player1.name
 
         val actualResult = board.currentPlayer.name
@@ -78,6 +78,18 @@ class BoardTest {
         board.cells[0][0] = cell
         board.cells[0][1] = cell
         board.cells[0][2] = cell
+        val actualResult = board.isWinnerAvailable()
+
+        Assert.assertTrue(actualResult)
+    }
+
+    @Test
+    fun `Given function should return expected result, when player have same values in vertical cells`(){
+
+        val cell = Cell(board.player1)
+        board.cells[0][0] = cell
+        board.cells[1][0] = cell
+        board.cells[2][0] = cell
         val actualResult = board.isWinnerAvailable()
 
         Assert.assertTrue(actualResult)
