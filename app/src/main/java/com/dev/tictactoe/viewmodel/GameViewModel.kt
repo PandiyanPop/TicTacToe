@@ -32,7 +32,8 @@ class GameViewModel: ViewModel() {
     fun updateGameStatus() {
         if(board.isWinnerAvailable())
             winner.postValue(board.currentPlayer.name)
-
+        else if(board.isFull())
+            noWinner.postValue("No winner found!")
     }
 
     fun stringFromNumbers(vararg numbers: Int): String {

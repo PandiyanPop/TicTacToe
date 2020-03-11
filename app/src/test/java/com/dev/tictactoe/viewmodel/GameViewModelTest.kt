@@ -103,4 +103,29 @@ class GameViewModelTest {
 
         Assert.assertNotNull(actualResult)
     }
+
+    @Test
+    fun `Given function should return no winner in Live Data, if game has no winner in the board`(){
+        val expectedResult = "No winner found!"
+
+        viewModel.init(playerOne, playerTwo)
+        val cell1 = Cell(viewModel.board.player1)
+        val cell2 = Cell(viewModel.board.player2)
+
+        viewModel.board.cells[0][0] = cell1
+        viewModel.board.cells[0][1] = cell1
+        viewModel.board.cells[0][2] = cell2
+
+        viewModel.board.cells[1][0] = cell2
+        viewModel.board.cells[1][1] = cell2
+        viewModel.board.cells[1][2] = cell1
+
+        viewModel.board.cells[2][0] = cell1
+        viewModel.board.cells[2][1] = cell1
+        viewModel.board.cells[2][2] = cell2
+        viewModel.updateGameStatus()
+        val actualResult =  viewModel.getNoWinner().value
+
+        Assert.assertEquals(expectedResult, actualResult)
+    }
 }
