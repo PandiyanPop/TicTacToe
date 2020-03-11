@@ -34,5 +34,7 @@ class Board(var playerOne: String, var playerTwo: String) {
     private fun compareValuesByRow(index: Int) = cell.getHorizontalCells(cells, index)
     private fun compareValuesByColumn(index: Int) = cell.getVerticalCells(cells, index)
 
+    fun getSelectedPosition(row: Int, column: Int) = cells[row][column]
+
     fun switchPlayer() = when (currentPlayer) { player1 -> currentPlayer = player2 else -> currentPlayer = player1 }
 }

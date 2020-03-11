@@ -119,4 +119,14 @@ class BoardTest {
 
         Assert.assertTrue(actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result, when selected a position in board`() {
+
+        val selectedPosition = board.getSelectedPosition(0,0)
+
+        val actualResult = selectedPosition.isEmptyCell
+
+        Assert.assertTrue(actualResult)
+    }
 }
