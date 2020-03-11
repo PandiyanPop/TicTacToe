@@ -6,8 +6,12 @@ import org.junit.Test
 class CellTest {
 
     private val playerOne = "John"
+    private val playerTwo = "Harry"
     private val playerOneValue = Board.PLAYER_ONE_VALUE
+    private val playerTwoValue = Board.PLAYER_TWO_VALUE
     private val player1 = Player(playerOne, playerOneValue)
+    private val player2 = Player(playerTwo, playerTwoValue)
+
     private val cell = Cell(player1)
 
     @Test
@@ -43,6 +47,17 @@ class CellTest {
         val cell = Cell(player)
 
         val actualResult = cell.hasCellValuesAreEqual(cell)
+
+        Assert.assertEquals(false, actualResult)
+    }
+
+    @Test
+    fun `Given function should return false when player values are not equal in the cells`(){
+
+        val cellOne = Cell(player1)
+        val cellTwo = Cell(player2)
+
+        val actualResult = cell.hasCellValuesAreEqual(cellOne, cellTwo)
 
         Assert.assertEquals(false, actualResult)
     }
