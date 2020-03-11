@@ -6,13 +6,14 @@ class Board(var playerOne: String, var playerTwo: String) {
     val player2 = Player(playerTwo, PLAYER_TWO_VALUE)
     var currentPlayer = player1
     var cells = Array(BOARD_SIZE) { Array(BOARD_SIZE) { Cell(null) } }
-    val cell = Cell(currentPlayer)
+    private val cell = Cell(currentPlayer)
 
     companion object {
         const val PLAYER_ONE_VALUE = "X"
         const val PLAYER_TWO_VALUE = "O"
         const val BOARD_SIZE = 3
         const val INDEX_ZERO = 0
+        const val NO_WINNER_FOUND = "No winner found!"
     }
 
     fun isWinnerAvailable(): Boolean = hasThreeSameHorizontalCells() || hasThreeSameVerticalCells() || hasThreeSameDiagonalCells()

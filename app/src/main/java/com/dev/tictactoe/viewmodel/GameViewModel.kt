@@ -1,5 +1,4 @@
 package com.dev.tictactoe.viewmodel
-
 import androidx.databinding.ObservableArrayMap
 import androidx.lifecycle.ViewModel
 import com.dev.tictactoe.model.Board
@@ -27,26 +26,24 @@ class GameViewModel: ViewModel() {
     fun getNoWinner(): LiveData<String> = noWinner
 
     fun onClickedCellAt(row: Int, column: Int) {
-        if (board.cells[row][column].isEmptyCell) {
-            board.cells[row][column] = Cell(board.currentPlayer)
-            cells[stringFromNumbers(row, column)] = board.currentPlayer.value
-            updateGameStatus()
-        }
+        when { isCellEmpty(row, column) -> updatePlayerValueInSelectedCell(row, column) }
     }
 
-    fun updateGameStatus() {
-        if(board.isWinnerAvailable())
-            winner.postValue(board.currentPlayer.name)
-        else if(board.isFull())
-            noWinner.postValue("No winner found!")
-        else
-            board.switchPlayer()
+    private fun updatePlayerValueInSelectedCell(row: Int, column: Int) {
+        board.cells[row][column] = notifyCurrentPlayer()
+        cells[stringFromNumbers(row, column)] = getCurrentPlayerValue()
+        updateGameStatus()
+    }
+
+    fun updateGameStatus() = when {
+            board.isWinnerAvailable() -> winner.postValue(board.currentPlayer.name)
+            board.isFull() -> noWinner.postValue(Board.NO_WINNER_FOUND)
+            else -> board.switchPlayer()
     }
 
     fun stringFromNumbers(vararg numbers: Int): String {
         val sNumbers = StringBuilder()
-        for (number in numbers)
-            sNumbers.append(number)
+        numbers.forEach { number -> sNumbers.append(number) }
         return sNumbers.toString()
     }
 
@@ -55,4 +52,7 @@ class GameViewModel: ViewModel() {
         winner = MutableLiveData()
         noWinner = MutableLiveData()
     }
+    private fun isCellEmpty(row: Int, column: Int) = board.cells[row][column].isEmptyCell
+    private fun notifyCurrentPlayer() = Cell(board.currentPlayer)
+    private fun getCurrentPlayerValue() = board.currentPlayer.value
 }
