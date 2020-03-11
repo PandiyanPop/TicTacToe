@@ -155,4 +155,19 @@ class GameViewModelTest {
 
         Assert.assertEquals(expectedResult, actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result, when game is restarted`(){
+        val expectedResult = 0
+
+        viewModel.init(playerOne, playerTwo)
+        viewModel.onClickedCellAt(ROW_INDEX,COLUMN_INDEX)
+        viewModel.cells[viewModel.stringFromNumbers(ROW_INDEX, COLUMN_INDEX)]
+
+        viewModel.resetGame()
+
+        val actualResult = viewModel.cells.size
+
+        Assert.assertEquals(expectedResult, actualResult)
+    }
 }
