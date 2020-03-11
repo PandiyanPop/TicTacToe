@@ -8,7 +8,7 @@ class BoardTest {
     private val playerTwo = "Harry"
     private val playerValue = Board.PLAYER_ONE_VALUE
     private val board = Board(playerOne, playerTwo)
-    val player1 = Player(playerOne, playerValue)
+    private val player1 = Player(playerOne, playerValue)
 
     @Test
     fun `Given function should return expected player, when player one called`(){
