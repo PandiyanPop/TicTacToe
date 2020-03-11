@@ -124,4 +124,17 @@ class CellTest {
 
         Assert.assertTrue(actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result, when player has same value in vertical cells at column 2`(){
+
+        val cell = Cell(player1)
+        val cells = Array(3) { Array(3) { Cell(null) } }
+        cells[0][1] = cell
+        cells[1][1] = cell
+        cells[2][1] = cell
+        val actualResult = cell.getVerticalCells(cells, 1)
+
+        Assert.assertTrue(actualResult)
+    }
 }
