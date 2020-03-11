@@ -150,4 +150,17 @@ class CellTest {
 
         Assert.assertTrue(actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result, if it has three same Diagonal cells from Left`() {
+
+        val cell = Cell(player1)
+        val cells = Array(3) { Array(3) { Cell(null) } }
+        cells[0][0] = cell
+        cells[1][1] = cell
+        cells[2][2] = cell
+        val actualResult = cell.getDiagonalCellsFromLeftToRight(cells)
+
+        Assert.assertTrue(actualResult)
+    }
 }
