@@ -27,6 +27,12 @@ class GameViewModel: ViewModel() {
         }
     }
 
+    fun updateGameStatus() {
+        if(board.isWinnerAvailable())
+            winner.postValue(board.currentPlayer.name)
+
+    }
+
     fun stringFromNumbers(vararg numbers: Int): String {
         val sNumbers = StringBuilder()
         for (number in numbers)
