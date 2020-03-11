@@ -11,5 +11,9 @@ class Board(var playerOne: String, var playerTwo: String) {
         const val PLAYER_TWO_VALUE = "O"
     }
 
+    fun isWinnerAvailable(): Boolean {
+        return false
+    }
+
     fun switchPlayer() = when (currentPlayer) { player1 -> currentPlayer = player2 else -> currentPlayer = player1 }
 }

@@ -63,4 +63,11 @@ class BoardTest {
 
         Assert.assertEquals(expectedResult, actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result, when winner available in board`(){
+        val actualResult = board.isWinnerAvailable()
+
+        Assert.assertFalse(actualResult)
+    }
 }
