@@ -14,6 +14,8 @@ class Cell(var player: Player?){
 
     fun getDiagonalCellsFromLeftToRight(cells: Array<Array<Cell>>) = hasCellValuesAreEqual(cells[INDEX_ZERO][INDEX_ZERO], cells[INDEX_ONE][INDEX_ONE], cells[INDEX_TWO][INDEX_TWO])
 
+    fun getDiagonalFromRightToLeft(cells: Array<Array<Cell>>) = hasCellValuesAreEqual(cells[INDEX_ZERO][INDEX_TWO], cells[INDEX_ONE][INDEX_ONE], cells[INDEX_TWO][INDEX_ZERO])
+
     fun hasCellValuesAreEqual(vararg cells: Cell): Boolean {
         if (isEmptyCell(cells)) return false
         cells.forEach { cell -> when { isPlayerValueIsEmpty(cell) -> return false } }
