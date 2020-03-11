@@ -23,4 +23,10 @@ class CellTest {
         val actualResult = cell.isEmptyCell
         Assert.assertFalse(actualResult)
     }
+
+    @Test
+    fun `Given function should return expected value, when player value is not null or not empty in the cell`(){
+        val actualResult = cell.isEmptyCell
+        Assert.assertTrue(!actualResult)
+    }
 }
