@@ -21,6 +21,9 @@ class Board(var playerOne: String, var playerTwo: String) {
         for (index in 0 until BOARD_SIZE)
             if (cell.getVerticalCells(cells, index))
                 return true
+        for (i in 0 until BOARD_SIZE)
+            if (cell.getDiagonalCellsFromLeftToRight(cells))
+                return true
         return false
     }
 
