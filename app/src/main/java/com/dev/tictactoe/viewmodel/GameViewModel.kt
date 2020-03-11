@@ -19,4 +19,11 @@ class GameViewModel {
             board.cells[row][column] = Cell(board.currentPlayer)
         }
     }
+
+    fun stringFromNumbers(vararg numbers: Int): String {
+        val sNumbers = StringBuilder()
+        for (number in numbers)
+            sNumbers.append(number)
+        return sNumbers.toString()
+    }
 }

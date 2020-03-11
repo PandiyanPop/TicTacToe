@@ -41,4 +41,13 @@ class GameViewModelTest {
 
         Assert.assertEquals(expectedResult, actualResult)
     }
+
+    @Test
+    fun `Given function should return String of given numbers`(){
+        val expectedResult = "01"
+
+        val actualResult = viewModel.stringFromNumbers(0,1)
+
+        Assert.assertEquals(expectedResult, actualResult)
+    }
 }
