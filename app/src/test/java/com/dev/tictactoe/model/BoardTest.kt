@@ -33,4 +33,12 @@ class BoardTest {
 
         Assert.assertEquals(player1.name, actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result, when player two is configured`(){
+
+        val actualResult = board.player2.name
+
+        Assert.assertNotEquals(player1.name, actualResult)
+    }
 }
