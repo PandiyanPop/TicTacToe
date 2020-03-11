@@ -11,8 +11,8 @@ class GameViewModel: ViewModel() {
 
     lateinit var board: Board
     lateinit var cells: ObservableArrayMap<String, String>
-    var winner = MutableLiveData<String>()
-    var noWinner = MutableLiveData<String>()
+    private var winner = MutableLiveData<String>()
+    private var noWinner = MutableLiveData<String>()
 
     fun init(playerOne: String, playerTwo: String){
         board = Board(playerOne, playerTwo)
