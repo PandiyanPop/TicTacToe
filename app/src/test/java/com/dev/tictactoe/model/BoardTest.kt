@@ -70,4 +70,16 @@ class BoardTest {
 
         Assert.assertFalse(actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result, when player have same values in horizontal cells`(){
+
+        val cell = Cell(board.player1)
+        board.cells[0][0] = cell
+        board.cells[0][1] = cell
+        board.cells[0][2] = cell
+        val actualResult = board.isWinnerAvailable()
+
+        Assert.assertTrue(actualResult)
+    }
 }
