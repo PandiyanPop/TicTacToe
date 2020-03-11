@@ -29,4 +29,10 @@ class CellTest {
         val actualResult = cell.isEmptyCell
         Assert.assertTrue(!actualResult)
     }
+
+    @Test
+    fun `Given function should return false when cell is empty`(){
+        val actualResult = cell.hasCellValuesAreEqual()
+        Assert.assertFalse(actualResult)
+    }
 }
