@@ -6,7 +6,7 @@ import org.junit.Test
 class BoardTest {
     private val playerOne = "John"
     private val playerTwo = "Harry"
-    private val playerValue = "X"
+    private val playerValue = Board.PLAYER_ONE_VALUE
     private val board = Board(playerOne, playerTwo)
     val player1 = Player(playerOne, playerValue)
 
