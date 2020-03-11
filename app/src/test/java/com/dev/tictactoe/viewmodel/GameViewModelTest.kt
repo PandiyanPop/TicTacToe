@@ -10,6 +10,8 @@ class GameViewModelTest {
     private val playerOne = "John"
     private val playerTwo = "Harry"
     private val playerOneValue = Board.PLAYER_ONE_VALUE
+    private val ROW_INDEX = 0
+    private val COLUMN_INDEX = 0
 
     @Test
     fun `Given function should return player one name`(){
@@ -34,34 +36,31 @@ class GameViewModelTest {
 
     @Test
     fun `Given function should return expected result, when 0,0 column clicked in the game`(){
-        val expectedResult = playerOne
 
         viewModel.init(playerOne, playerTwo)
-        viewModel.onClickedCellAt(0,0)
+        viewModel.onClickedCellAt(ROW_INDEX,COLUMN_INDEX)
 
-        val actualResult =  viewModel.board.cells[0][0].player?.name
+        val actualResult =  viewModel.board.cells[ROW_INDEX][COLUMN_INDEX].player?.name
 
-        Assert.assertEquals(expectedResult, actualResult)
+        Assert.assertEquals(playerOne, actualResult)
     }
 
     @Test
     fun `Given function should return String of given numbers`(){
-        val expectedResult = "01"
 
         val actualResult = viewModel.stringFromNumbers(0,1)
 
-        Assert.assertEquals(expectedResult, actualResult)
+        Assert.assertEquals("01", actualResult)
     }
 
     @Test
     fun `Given function should return player one value, when 0,0 column clicked in the game`(){
-        val expectedResult = playerOneValue
 
         viewModel.init(playerOne, playerTwo)
-        viewModel.onClickedCellAt(0,0)
+        viewModel.onClickedCellAt(ROW_INDEX,COLUMN_INDEX)
 
-        val actualResult =  viewModel.cells[viewModel.stringFromNumbers(0, 0)]
+        val actualResult =  viewModel.cells[viewModel.stringFromNumbers(ROW_INDEX, COLUMN_INDEX)]
 
-        Assert.assertEquals(expectedResult, actualResult)
+        Assert.assertEquals(playerOneValue, actualResult)
     }
 }
