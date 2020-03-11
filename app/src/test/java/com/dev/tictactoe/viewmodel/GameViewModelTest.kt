@@ -19,4 +19,14 @@ class GameViewModelTest {
 
         Assert.assertEquals(expectedResult, actualResult)
     }
+
+    @Test
+    fun `Given function should return expected result`(){
+
+        viewModel.init(playerOne, playerTwo)
+
+        val actualResult = viewModel.cells
+
+        Assert.assertNotNull(actualResult)
+    }
 }
