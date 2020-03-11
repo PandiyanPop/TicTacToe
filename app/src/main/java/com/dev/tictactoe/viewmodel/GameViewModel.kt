@@ -17,6 +17,7 @@ class GameViewModel {
     fun onClickedCellAt(row: Int, column: Int) {
         if (board.cells[row][column].isEmptyCell) {
             board.cells[row][column] = Cell(board.currentPlayer)
+            cells[stringFromNumbers(row, column)] = board.currentPlayer.value
         }
     }
 
