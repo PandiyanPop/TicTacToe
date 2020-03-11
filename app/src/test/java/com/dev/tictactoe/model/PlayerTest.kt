@@ -5,7 +5,8 @@ import org.junit.Test
 
 class PlayerTest {
     private val playerName = "John"
-    private val player1 = Player(playerName)
+    private val playerValue = "X"
+    private val player1 = Player(playerName, playerValue)
 
     @Test
     fun `Given function should return expected result, when player names are equal`(){
@@ -13,5 +14,13 @@ class PlayerTest {
         val actualResult = player1.name
 
         Assert.assertEquals(playerName, actualResult)
+    }
+
+    @Test
+    fun `Given function should return expected result, when player values are equal`(){
+
+        val actualResult = player1.value
+
+        Assert.assertEquals(playerValue, actualResult)
     }
 }
