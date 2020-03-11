@@ -4,8 +4,11 @@ class Cell(var player: Player?){
     companion object {
         const val INDEX_ZERO = 0
         const val INDEX_ONE = 1
+        const val INDEX_TWO = 2
     }
     val isEmptyCell = player == null || player?.value.isNullOrEmpty()
+
+    fun getHorizontalCells(cells: Array<Array<Cell>>, index: Int) = hasCellValuesAreEqual(cells[index][INDEX_ZERO], cells[index][INDEX_ONE], cells[index][INDEX_TWO])
 
     fun hasCellValuesAreEqual(vararg cells: Cell): Boolean {
         if (isEmptyCell(cells)) return false
