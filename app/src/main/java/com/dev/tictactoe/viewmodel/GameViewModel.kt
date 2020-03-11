@@ -4,16 +4,21 @@ import androidx.databinding.ObservableArrayMap
 import androidx.lifecycle.ViewModel
 import com.dev.tictactoe.model.Board
 import com.dev.tictactoe.model.Cell
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 class GameViewModel: ViewModel() {
 
     lateinit var board: Board
     lateinit var cells: ObservableArrayMap<String, String>
+    var winner = MutableLiveData<String>()
 
     fun init(playerOne: String, playerTwo: String){
         board = Board(playerOne, playerTwo)
         cells = ObservableArrayMap()
     }
+
+    fun getWinner(): LiveData<String> = winner
 
     fun onClickedCellAt(row: Int, column: Int) {
         if (board.cells[row][column].isEmptyCell) {

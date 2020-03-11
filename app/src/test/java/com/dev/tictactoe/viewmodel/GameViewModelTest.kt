@@ -63,4 +63,12 @@ class GameViewModelTest {
 
         Assert.assertEquals(playerOneValue, actualResult)
     }
+
+    @Test
+    fun `Given function should not return null`(){
+
+        val actualResult =  viewModel.getWinner()
+
+        Assert.assertNotNull(actualResult)
+    }
 }
